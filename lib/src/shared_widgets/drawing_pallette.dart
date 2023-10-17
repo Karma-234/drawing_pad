@@ -13,12 +13,14 @@ class CustomDrawingAppBar extends StatelessWidget {
     required this.selectedrawingType,
     required this.drawings,
     required this.activeDraving,
+    required this.strokeWidth,
   });
 
   final ValueNotifier<Color> strokeColor;
   final ValueNotifier<DrawingType> selectedrawingType;
   final ValueNotifier<List<Drawing>> drawings;
   final ValueNotifier<Drawing?> activeDraving;
+  final ValueNotifier<double> strokeWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +73,33 @@ class CustomDrawingAppBar extends StatelessWidget {
               height: 16,
             ),
             Row(
+              children: [
+                const Text(
+                  'Stroke width:',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black),
+                ),
+                const SizedBox(
+                  width: 4,
+                ),
+                Flexible(
+                  child: Slider.adaptive(
+                    min: 1,
+                    max: 50,
+                    activeColor: Colors.black,
+                    value: strokeWidth.value,
+                    onChanged: (value) => strokeWidth.value = value,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 24,
+            ),
+            Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 AppIconWithtextButton(
@@ -78,8 +107,10 @@ class CustomDrawingAppBar extends StatelessWidget {
                   icon: Icons.clear,
                   text: 'Clear',
                   onTap: () {
-                    drawings.value = [];
-                    activeDraving.value = null;
+                    if (drawings.value.isNotEmpty) {
+                      drawings.value = [];
+                      activeDraving.value = null;
+                    }
                   },
                 ),
                 const SizedBox(

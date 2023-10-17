@@ -25,7 +25,7 @@ class DrawingPad extends HookWidget {
     final selectedrawingType = useState(DrawingType.scribble);
     final drawaingPadKey = GlobalKey();
     final strokeColor = useState(Colors.black);
-    final strokeWidth = useState(10);
+    final strokeWidth = useState<double>(10);
     final allDrawings = useState(<Drawing>[]);
     final activeDarwing = useState<Drawing?>(null);
     final animationController = useAnimationController(
@@ -125,6 +125,7 @@ class DrawingPad extends HookWidget {
                   Tween<Offset>(begin: const Offset(0, -1), end: Offset.zero)
                       .animate(animationController),
               child: CustomDrawingAppBar(
+                  strokeWidth: strokeWidth,
                   activeDraving: activeDarwing,
                   drawings: allDrawings,
                   strokeColor: strokeColor,
