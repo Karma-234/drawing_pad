@@ -124,7 +124,7 @@ class DrawingPad extends HookWidget {
               position:
                   Tween<Offset>(begin: const Offset(0, -1), end: Offset.zero)
                       .animate(animationController),
-              child: DrawingPallette(
+              child: CustomDrawingAppBar(
                   activeDraving: activeDarwing,
                   drawings: allDrawings,
                   strokeColor: strokeColor,

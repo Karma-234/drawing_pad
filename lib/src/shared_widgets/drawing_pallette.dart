@@ -6,8 +6,8 @@ import 'app_color_palette.dart';
 import 'app_icon_with_text_button.dart';
 import 'drawing_styles.dart';
 
-class DrawingPallette extends StatelessWidget {
-  const DrawingPallette({
+class CustomDrawingAppBar extends StatelessWidget {
+  const CustomDrawingAppBar({
     super.key,
     required this.strokeColor,
     required this.selectedrawingType,
