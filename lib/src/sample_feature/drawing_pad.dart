@@ -10,8 +10,8 @@ import '../shared_widgets/drawing_pallette.dart';
 import 'sample_item.dart';
 
 /// Displays a list of SampleItems.
-class SampleItemListView extends HookWidget {
-  const SampleItemListView({
+class DrawingPad extends HookWidget {
+  const DrawingPad({
     super.key,
     this.items = const [SampleItem(1), SampleItem(2), SampleItem(3)],
   });
