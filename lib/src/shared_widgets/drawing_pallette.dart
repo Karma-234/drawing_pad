@@ -93,6 +93,9 @@ class CustomDrawingAppBar extends StatelessWidget {
                       drawings.value = holder;
                       activeDraving.value = null;
                     }
+                    if (drawings.value.isNotEmpty) {
+                      activeDraving.value = drawings.value.last;
+                    }
                   },
                 ),
               ],
