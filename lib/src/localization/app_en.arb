@@ -1,0 +1,6 @@
+{
+  "appTitle": "custom_paint_animation",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}
